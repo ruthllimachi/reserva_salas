@@ -27,7 +27,7 @@
 					<td><input class="form-control" ng-model="sala.hora_inicio"></td>
 					<td><input class="form-control" ng-model="sala.hora_final"></td>
 					<td><input class="form-control" ng-model="sala.estado"></td>
-					<td><buttom class="btn btn-primary" ng-click="addReserva()"> Add Reserva</buttom></td>
+					<td><buttom class="btn btn-primary" ng-click="addReserva()">Add</buttom></td>					
 				</tr>	
 				<tr ng-repeat="sala in lista">
 					<td>{{sala.codigo}}</td>
@@ -36,6 +36,8 @@
 					<td>{{sala.hora_inicio}}</td>
 					<td>{{sala.hora_final}}</td>
 					<td>{{sala.estado}}</td>
+					<td><buttom class="btn btn-danger" ng-click="remove(sala._id)">Remove</buttom></td>
+					<td><buttom class="btn btn-primary" ng-click="addReserva()">Edit</buttom></td>
 				</tr>
 			</tbody>
 		</table>	

@@ -25,5 +25,11 @@ myApp.controller('appCtrl',['$scope', '$http',
   			})
   	}; 
 
+  	$scope.remove = function(id){
+  		console.log(id);
+  		$http.delete('/listaSalas/' + id);
+  		refresh();
+  	};
+
 }]);
 

@@ -29,5 +29,15 @@ app.post('/listaSalas', function(req, res){
 	});
 });
 
+app.delete('/listaSalas/:id', function(req, res){
+	var id = req.params.id;
+	console.log(id);
+	db.reservas.remove({_id:mongojs.ObjectId(id)}, function(err, doc){
+		res.json(doc);
+
+	});
+
+});
+
 app.listen(3000);
 console.log("El servidor 3000 ejecutandose");
