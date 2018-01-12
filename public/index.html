@@ -14,14 +14,27 @@
 					<th>Codigo</th>
 					<th>Nombre</th>
 					<th>Fecha</th>				
+					<th>Hora Inicio</th>
+					<th>Hora Final</th>
 					<th>Estado</th>
 				</tr>
 			</thead>
-			<<tbody>
+			<tbody>
+				<tr>
+					<td><input class="form-control" ng-model="sala.codigo"></td>
+					<td><input class="form-control" ng-model="sala.nombre"></td>
+					<td><input class="form-control" ng-model="sala.fecha"></td>
+					<td><input class="form-control" ng-model="sala.hora_inicio"></td>
+					<td><input class="form-control" ng-model="sala.hora_final"></td>
+					<td><input class="form-control" ng-model="sala.estado"></td>
+					<td><buttom class="btn btn-primary" ng-click="addReserva()"> Add Reserva</buttom></td>
+				</tr>	
 				<tr ng-repeat="sala in lista">
 					<td>{{sala.codigo}}</td>
 					<td>{{sala.nombre}}</td>
 					<td>{{sala.fecha}}</td>
+					<td>{{sala.hora_inicio}}</td>
+					<td>{{sala.hora_final}}</td>
 					<td>{{sala.estado}}</td>
 				</tr>
 			</tbody>
@@ -30,6 +43,6 @@
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
-	<<script src="/controllers/controller.js"></script>
+	<script src="/controllers/controller.js"></script>
 </body>
 </html>

@@ -2,6 +2,7 @@ var express = require("express");
 var app = express();
 var mongojs = require("mongojs");
 var db = mongojs('dbreservas',['dbreservas']);
+var bodyParser = require("body-parser");
 
 /*
 app.get("/", function(req, res){
@@ -9,6 +10,8 @@ app.get("/", function(req, res){
 });
 */
 app.use(express.static(__dirname + "/public"));
+app.use(bodyParser.json());
+
 app.get('/listaSalas', function(req,res){
 	console.log('funciona get');
 	db.reservas.find(function(err,docs){
@@ -16,30 +19,15 @@ app.get('/listaSalas', function(req,res){
 		console.log(docs);
 		 res.json(docs);
 	});
-/*
-	sala1 = {
-			codigo:'p1-001',
-			nombre:'sala de reuniones principal',
-			fecha:'01-01-2017',
-			hora1:'12:30 pm',
-			hora2:'17:00 pm',
-			evento:"ninguno",
-			estado:'libre'
-		};
-		sala2 = {
-			codigo:'p1-001',
-			nombre:'sala de reuniones principal',
-			fecha:'01-01-2017',
-			hora1:'17:15 pm',
-			hora2:'19:00 pm',
-			evento:"reunion de xxx",
-			estado:'ocupado'
-		};
+});
 
-		var lista =[sala1, sala2];
-		res.json(lista);
-	*/	
+app.post('/listaSalas', function(req, res){
+	console.log('ingreso post');
+	console.log(req.body);
+	db.reservas.insert(req.body, function(err, doc){
+		res.json(doc);
+	});
 });
 
 app.listen(3000);
-console.log("El servidor 3000 ejecutandse");
+console.log("El servidor 3000 ejecutandose");
