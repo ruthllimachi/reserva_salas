@@ -39,5 +39,13 @@ app.delete('/listaSalas/:id', function(req, res){
 
 });
 
+app.get('/listaSalas/:id', function(req, res){
+	var id = req.params.id
+	console.log(id);
+	db.reservas.findOne({_id:mongojs.ObjectId(id)}, function(err, doc){
+		res.json(doc);
+	});
+});	
+
 app.listen(3000);
 console.log("El servidor 3000 ejecutandose");

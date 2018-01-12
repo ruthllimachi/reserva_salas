@@ -31,5 +31,14 @@ myApp.controller('appCtrl',['$scope', '$http',
   		refresh();
   	};
 
+  	$scope.edit = function(id){
+  		console.log(id);
+  		$http.get('/listaSalas/' + id)
+  			.then(function(response){
+  				console.log(response);
+  				$scope.sala = response.data;  				
+  			});  		
+  	};
+
 }]);
 

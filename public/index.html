@@ -17,6 +17,8 @@
 					<th>Hora Inicio</th>
 					<th>Hora Final</th>
 					<th>Estado</th>
+					<th>Action</th>
+					<th>&nbsp;</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -28,6 +30,7 @@
 					<td><input class="form-control" ng-model="sala.hora_final"></td>
 					<td><input class="form-control" ng-model="sala.estado"></td>
 					<td><buttom class="btn btn-primary" ng-click="addReserva()">Add</buttom></td>					
+					<td><buttom class="btn btn-info" ng-click="update()">Update</buttom></td>				
 				</tr>	
 				<tr ng-repeat="sala in lista">
 					<td>{{sala.codigo}}</td>
@@ -37,7 +40,7 @@
 					<td>{{sala.hora_final}}</td>
 					<td>{{sala.estado}}</td>
 					<td><buttom class="btn btn-danger" ng-click="remove(sala._id)">Remove</buttom></td>
-					<td><buttom class="btn btn-primary" ng-click="addReserva()">Edit</buttom></td>
+					<td><buttom class="btn btn-warning" ng-click="edit(sala._id)">Edit</buttom></td>
 				</tr>
 			</tbody>
 		</table>	
