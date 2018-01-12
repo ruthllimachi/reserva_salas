@@ -1,0 +1,14 @@
+{
+  "name": "reserva_salas",
+  "version": "1.0.0",
+  "description": "Sistema de reserva de salas",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ruth Limachi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
