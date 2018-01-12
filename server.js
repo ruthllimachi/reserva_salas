@@ -1,5 +1,8 @@
 var express = require("express");
 var app = express();
+var mongojs = require("mongojs");
+var db = mongojs('dbreservas',['dbreservas']);
+
 /*
 app.get("/", function(req, res){
 	res.send("Hola Mundo");
@@ -8,7 +11,12 @@ app.get("/", function(req, res){
 app.use(express.static(__dirname + "/public"));
 app.get('/listaSalas', function(req,res){
 	console.log('funciona get');
-
+	db.reservas.find(function(err,docs){
+		console.log('ingreso a la base de reservas');
+		console.log(docs);
+		 res.json(docs);
+	});
+/*
 	sala1 = {
 			codigo:'p1-001',
 			nombre:'sala de reuniones principal',
@@ -30,6 +38,7 @@ app.get('/listaSalas', function(req,res){
 
 		var lista =[sala1, sala2];
 		res.json(lista);
+	*/	
 });
 
 app.listen(3000);
