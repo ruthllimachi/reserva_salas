@@ -47,5 +47,15 @@ app.get('/listaSalas/:id', function(req, res){
 	});
 });	
 
+app.put('/listaSalas/:id', function(req, res){
+	var id = req.params.id
+	console.log(req.body.nombre);
+	db.reservas.findAndModify({query: {_id:mongojs.ObjectId(id)}, 
+		update:{$set:{codigo:req.body.codigo, nombre:req.body.nombre, fecha:req.body.fecha,	hora_inicio:req.body.hora_inicio, hora_final:req.body.hora_final, estado:req.body.estado}},
+			new: true},	function(err, doc){
+				res.json(doc);
+	});
+});	
+
 app.listen(3000);
 console.log("El servidor 3000 ejecutandose");

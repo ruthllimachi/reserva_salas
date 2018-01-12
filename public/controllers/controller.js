@@ -40,5 +40,16 @@ myApp.controller('appCtrl',['$scope', '$http',
   			});  		
   	};
 
+
+  	$scope.update = function(){
+  		console.log($scope.sala._id);
+  		$http.put('/listaSalas/' + $scope.sala._id, $scope.sala)
+  			.then(function(response){
+  				console.log(response);
+  				$scope.sala = {};
+  				refresh();
+  			});  		
+  	};
+
 }]);
 
